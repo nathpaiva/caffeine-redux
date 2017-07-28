@@ -18,6 +18,9 @@
 ## Para iniciar é necessário rodar o mongo localmente:
 * [mongod](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)
 
+## Antes de dar start no projeto é preciso instalar as dependencias:
+* `yarn` ou `npm install`
+
 ## Para dar start no projeto é preciso rodar os comandos:
 `yarn start` ou `npm start`
 * Esse comando da acesso a [http://localhost:2000](http://localhost:2000), dando início ao front-end
