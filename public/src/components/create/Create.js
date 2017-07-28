@@ -28,7 +28,10 @@ class Create extends Component {
         this.props.handleClick(newCapsule);
       }}>
         <Message className={this.props.typeMesage} msg={this.props.msg} />
-        <Box title='Create capsule' inputs={[
+        <Box title='Create capsule' link={[{
+          text: 'back to list',
+          to: `/list/${this.props.match.params.id}`
+        }]} inputs={[
           { type: 'text', id: 'brand', text: '', label: 'Capsule brand:', inputRef: (input) => this.brand = input },
           { type: 'text', id: 'type', text: '', label: 'Capsule name:', inputRef: (input) => this.type = input },
           { type: 'number', id: 'price', text: '', label: 'Last price paied:', inputRef: (input) => this.price = input },

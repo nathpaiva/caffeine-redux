@@ -29,7 +29,10 @@ class Edit extends Component {
         }
         this.props.handleClick(newCapsule);
       }}>
-        {this.props.capsules.map(capsule => <Box title='Info capsule' key={capsule._id} inputs={[
+        {this.props.capsules.map(capsule => <Box title='Info capsule' key={capsule._id} link={[{
+          text: 'back to list',
+          to: `/list/${this.props.match.params.user_id}`
+        }]} inputs={[
           { type: 'text', id: 'brand', text: capsule.brand_capsule, label: 'Capsule brand:', defaultValue: capsule.brand_capsule, inputRef: (input) => this.brand = input },
           { type: 'text', id: 'type', text: capsule.type_capsule, label: 'Capsule name:', defaultValue: capsule.type_capsule, inputRef: (input) => this.type = input },
           { type: 'number', id: 'price', text: capsule.price_last_buy, label: 'Last price paied:', defaultValue: capsule.price_last_buy, inputRef: (input) => this.price = input },
@@ -41,8 +44,6 @@ class Edit extends Component {
     )
   }
 };
-
-// export default Edit;
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -30,6 +30,8 @@ const style = {
     color: '#38387d',
     textAlign: 'right',
     textTransform: 'uppercase',
+    margin: '0 15px 0 0',
+    textDecoration: 'underline',
   },
 };
 
