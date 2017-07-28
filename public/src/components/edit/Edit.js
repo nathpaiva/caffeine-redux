@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getAllItems, createItem } from '../../logics/CaffeineApi';
+import Message from '../message/Message';
 
 import Box from '../box/Box';
 
@@ -29,6 +30,7 @@ class Edit extends Component {
         }
         this.props.handleClick(newCapsule);
       }}>
+        <Message className={this.props.typeMesage} msg={this.props.msg} />
         {this.props.capsules.map(capsule => <Box title='Info capsule' key={capsule._id} link={[{
           text: 'back to list',
           to: `/list/${this.props.match.params.user_id}`

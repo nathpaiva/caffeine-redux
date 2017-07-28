@@ -1,7 +1,5 @@
 'user strict';
 
-import history from '../components/history';
-
 import { allCapsules, showMessage } from '../actions/actionCreator';
 
 
@@ -32,9 +30,10 @@ export function getAllItems(token, user_id, type) {
           }
           dispatch(showMessage(message));
 
-          if (message.msg === 'Failed to authenticate token.') {
-            // this.props.history.push(`/logout`);
-          }
+          // if (message.msg === 'Failed to authenticate token.') {
+          //   // this.props.history.push(`/logout`);
+          //   // dispatch(push('/logout'));
+          // }
 
           throw new Error(message.msg);
           return;
@@ -93,12 +92,10 @@ export function createItem(capsule, type) {
         }
 
         message = {
-          msg: '',
-          typeMesage: ''
+          msg: type === 'one' ? 'Change success!' : 'Create success',
+          typeMesage: 'success'
         }
-        // console.log("browserHistory", history);
-        // history.push(`/list/${capsule.user_id}`);
-        // this.props.history.push(`/list/${this.state.user_id}`);
+        dispatch(showMessage(message));
       });
   }
 }
