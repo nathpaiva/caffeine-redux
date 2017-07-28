@@ -1,5 +1,9 @@
 # Caffeine - Redux
 
+É um projeto de estudo de cadastro de cápsulas de café, salvando a marca, tipo, preço da compra, quantas capsulas são cosumidas na semana e quando deseja ser notificar quando estiver no final da caixa.
+
+A ideia é implementar uma notificação de quando estiver acabando a cápsula para o cadastro de cada caixa cadastrada.
+
 ## Projeto desenvolvido com:
 * Node,
 * Express,
