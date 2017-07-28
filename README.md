@@ -1,4 +1,4 @@
-# Caffeine
+# Caffeine - Redux
 
 ## Projeto desenvolvido com:
 * Node,
