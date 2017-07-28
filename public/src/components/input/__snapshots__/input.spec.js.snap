@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Test Input Component #Should Input to mach snapshot with label 1`] = `
+<div>
+  <label
+    htmlFor="email"
+    style={
+      Object {
+        "fontFamily": "\\"Roboto\\", sans-serif",
+        "fontSice": "12px",
+      }
+    }
+  >
+    Email
+  </label>
+  <input
+    defaultValue=""
+    disabled={false}
+    id="email"
+    name="email"
+    placeholder="email"
+    style={
+      Object {
+        "border": "1px solid #CCCCCC",
+        "borderRadius": "2px",
+        "height": "32px",
+        "margin": "2px 0",
+        "padding": "0 5px",
+        "width": "100%",
+      }
+    }
+    type="email"
+  />
+</div>
+`;
+
+exports[`#Test Input Component #Should Input to mach snapshot without label 1`] = `
+<div>
+  
+  <input
+    defaultValue=""
+    disabled={false}
+    id="email"
+    name="email"
+    placeholder="email"
+    style={
+      Object {
+        "border": "1px solid #CCCCCC",
+        "borderRadius": "2px",
+        "height": "32px",
+        "margin": "2px 0",
+        "padding": "0 5px",
+        "width": "100%",
+      }
+    }
+    type="email"
+  />
+</div>
+`;

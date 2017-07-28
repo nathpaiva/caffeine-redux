@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Test Title Component #Should Title to mach snapshot 1`] = `
+<h2
+  style={
+    Object {
+      "color": "#414141",
+      "fontFamily": "\\"Roboto\\", sans-serif",
+      "fontSize": "20px",
+      "textAlign": "center",
+    }
+  }
+>
+  Cadastre-se
+</h2>
+`;

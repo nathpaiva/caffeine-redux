@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Test Message Component #Should Message with error 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#982d2d",
+      "color": "#fff",
+      "fontFamily": "\\"Roboto\\", sans-serif",
+      "fontSize": "15px",
+      "padding": "15px 0",
+      "textAlign": "center",
+    }
+  }
+>
+  Error message
+</div>
+`;
+
+exports[`#Test Message Component #Should Message with success 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#469a46",
+      "color": "#fff",
+      "fontFamily": "\\"Roboto\\", sans-serif",
+      "fontSize": "15px",
+      "padding": "15px 0",
+      "textAlign": "center",
+    }
+  }
+>
+  Success message
+</div>
+`;

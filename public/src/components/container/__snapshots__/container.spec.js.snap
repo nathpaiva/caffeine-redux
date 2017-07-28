@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Test Container Component #Should Container to mach snapshot - li item 1`] = `
+<li
+  style={
+    Object {
+      "fontSize": "12px",
+      "margin": "5px 0",
+    }
+  }
+>
+  <div>
+    Oioi
+  </div>
+</li>
+`;

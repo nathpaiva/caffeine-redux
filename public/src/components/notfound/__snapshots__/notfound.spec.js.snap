@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Test Page NotFound #Should Page NotFound 1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "fontSize": "40px",
+        "margin": "40px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    Page not found :(
+  </h3>
+  <ul
+    style={
+      Object {
+        "display": "flex",
+        "fontSize": "13px",
+        "justifyContent": "center",
+        "margin": "auto",
+        "maxWidth": "500px",
+        "width": "100%",
+      }
+    }
+  >
+    <li
+      style={
+        Object {
+          "margin": "0 5px",
+        }
+      }
+    >
+      <a
+        href="/"
+      >
+        Login
+      </a>
+    </li>
+  </ul>
+</div>
+`;
