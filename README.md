@@ -1,40 +1,41 @@
 # Caffeine - Redux
 
-É um projeto de estudo de cadastro de cápsulas de café, salvando a marca, tipo, preço da compra, quantas capsulas são cosumidas na semana e quando deseja ser notificar quando estiver no final da caixa.
+It is a study project of registering coffee capsules, saving the brand, type, price of purchase, how many capsules are cosumed in the week and when you want to be notify when it is at the end of the box.
 
-A ideia é implementar uma notificação de quando estiver acabando a cápsula para o cadastro de cada caixa cadastrada.
+The idea is to implement a notification of when you are finishing the capsule for the registration of each registered box.
 
-## Projeto desenvolvido com:
+## Project developed with:
 * Node,
 * Express,
 * Mongodb e
 * React
 
-## Teste desenvolvido com:
+## Test developed with:
 * Jest, (back-end e front-end)
-* Storybook - visualização de componentes 
+* Storybook - Viewing Components
 
-## Para rodar o projeto é preciso instalar:
+## To run the project you need to install:
 * [Node](https://nodejs.org/en/download/)
-* [Yarn](https://yarnpkg.com/lang/en/docs/install/) ou NPM (já instalado com o node)
+* [Yarn](https://yarnpkg.com/lang/en/docs/install/) or NPM (already installed with the node)
 * [Mongodb](https://docs.mongodb.com/manual/installation/)
 
-## Para iniciar é necessário rodar o mongo localmente:
+## To start it is necessary to rotate the mongo locally:
 * [mongod](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)
 
-## Antes de dar start no projeto é preciso instalar as dependencias:
+## Before starting the project you must install the dependencies:
 * `yarn` ou `npm install`
 
-## Para dar start no projeto é preciso rodar os comandos:
-`yarn start` ou `npm start`
-* Esse comando da acesso a [http://localhost:2000](http://localhost:2000), dando início ao front-end
+## To start the project you have to run the commands:
+`yarn start` or `npm start`
+* This command to access [http://localhost:2000](http://localhost:2000), starting the front-end
+yarn startapi or npm startapi
 
-`yarn startapi` ou `npm startapi`
-* Esse comando da acesso a [http://localhost:3000](http://localhost:2000), dando início ao back-end
+`yarn startapi` or `npm startapi`
+* This command to access [http://localhost:3000](http://localhost:2000), starting the backend
 
-## Caso queira ver a cobertura de teste:
-`yarn test` ou `npm test`
+## If you want to see the test coverage:
+`yarn test` or `npm test`
 
-## Para poder ver os componentes no Storybook:
-`yarn storybook` ou `npm storybook`
-* Esse comando da acesso a [http://localhost:6006/](http://localhost:6006/)
+## To be able to see the components in Storybook:
+`yarn storybook` or `npm storybook`
+* This command to access [http://localhost:6006/](http://localhost:6006/)
