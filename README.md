@@ -28,7 +28,6 @@ The idea is to implement a notification of when you are finishing the capsule fo
 ## To start the project you have to run the commands:
 `yarn start` or `npm start`
 * This command to access [http://localhost:2000](http://localhost:2000), starting the front-end
-yarn startapi or npm startapi
 
 `yarn startapi` or `npm startapi`
 * This command to access [http://localhost:3000](http://localhost:2000), starting the backend
