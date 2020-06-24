@@ -1,17 +1,15 @@
 const UsersDB = require('../models/Users');
 const servicesMemcached = require('../services/memcachedClient');
 const jwt = require('jsonwebtoken');
+const { validationResult } = require('express-validator');
 
-_generateToken = (user, secret) => {
-  return jwt.sign(user, secret, {
-    // expiresIn: 60 * 60 * 24
-    // expiresIn: 300 // in seconds
-    expiresIn: 60 * 60 * 24 // in seconds
-  });
-}
+_generateToken = (user, secret) => jwt.sign(user.toJSON(), secret, {
+  // expiresIn: 60 * 60 * 24
+  // expiresIn: 300 // in seconds
+  expiresIn: 60 * 60 * 24 // in seconds
+});
 
 const apiUsers = {};
-
 
 apiUsers.listUsers = (req, res) => {
   UsersDB.find({}, function (err, users) {
@@ -65,11 +63,8 @@ apiUsers.authenticated = (req, res) => {
 apiUsers.createUser = (req, res) => {
   let user = req.body;
 
-  req.assert('user_name', 'Nome de usuário é obrigatório').notEmpty();
-  req.assert('user_mail', 'Email é obrigatório').notEmpty();
-  req.assert('password', 'Senha é obrigatório').notEmpty();
+  const errors = validationResult(req);
 
-  const errors = req.validationErrors();
   if (errors) {
     res.status(400).send(errors);
     return;

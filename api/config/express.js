@@ -15,7 +15,6 @@ const consign = require('consign')({
   cwd: 'api'
 });
 
-const expressValidator = require('express-validator');
 const path = require('path');
 
 
@@ -39,8 +38,6 @@ module.exports = () => {
       }
     }
   }));
-
-  app.use(expressValidator());
 
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

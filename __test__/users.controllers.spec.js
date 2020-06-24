@@ -21,7 +21,7 @@ describe('#User Controller', () => {
     });
 
 
-    it('#Get users with auth', async() => {
+    it.only('#Get users with auth', async() => {
       const user = await request.post('/api/createuser')
         .set('Accept', 'application/json')
         .send({
@@ -30,6 +30,7 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
+        console.log("user.body", user.body)
       const login = await request.post('/api/login')
         .set('Accept', 'application/json')
         .send({
@@ -65,7 +66,7 @@ describe('#User Controller', () => {
       const res = await request.get('/api/auth/users')
         .set('Accept', 'application/json')
         .set('x-access-token', '');
-        
+
       expect(res.body.success).toEqual(false);
       // expect(res).toMatchSnapshot();
     });
@@ -89,7 +90,7 @@ describe('#User Controller', () => {
       const res = await request.get('/api/auth/users')
         .set('Accept', 'application/json')
         .set('x-access-token', `${login.body.token}a`);
-        
+
       expect(res.body.success).toEqual(false);
       // expect(res).toMatchSnapshot();
     });
