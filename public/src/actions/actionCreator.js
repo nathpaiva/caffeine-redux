@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 export function allCapsules(capsules) {
   return { type: 'CAPSULES', capsules };
