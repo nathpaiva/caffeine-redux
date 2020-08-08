@@ -1,0 +1,14 @@
+{
+  "verbose": true,
+  "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}", "!src/**/*.css.{js,jsx,mjs}"],
+  "testPathIgnorePatterns": ["node_modules"],
+  "testMatch": [
+    "<rootDir>/__test__/jest/**/?(*.)(spec).{js,jsx,mjs}",
+    "<rootDir>/src/components/**/?(*.)(spec).{js,jsx,mjs}",
+    "<rootDir>/src/views/**/?(*.)(spec).{js,jsx,mjs}",
+    "<rootDir>/src/helper/**/?(*.)(spec).{js,jsx,mjs}"
+  ],
+  "moduleNameMapper": {
+    "@helpers": "<rootDir>/__test__/jest/helpers"
+  }
+}

@@ -1,4 +1,4 @@
-'user strict'
+'use strict'
 
 const Memcached = require('memcached');
 

@@ -1,5 +1,5 @@
 const CapsulesDB = require('../models/Capsules');
-const servicesMemcached = require('../services/memcachedClient');
+const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 
 const apiCapsules = {};
@@ -44,15 +44,8 @@ apiCapsules.loadOneCapsules = (req, res) => {
 apiCapsules.createNewCapsule = (req, res) => {
   let newCapsuleItem = req.body;
 
-  req.assert('user_name', 'Nome de usuário é obrigatório').notEmpty();
-  req.assert('user_id', 'O id do usuário é obrigatório').notEmpty();
-  req.assert('type_capsule', 'Tipode da capsula é obrigatório').notEmpty();
-  req.assert('brand_capsule', 'A marca da capsula é obrigatório').notEmpty();
-  req.assert('quantity_capsules_per_week', 'Quantidade de cápsulas por semana é obrigatório').notEmpty();
-  req.assert('notify_enf_capsules', 'Notificar quando finalizar é obrigatório').notEmpty();
-
-  const errors = req.validationErrors();
-  if (errors) {
+  const errors = validationResult(req);
+  if (errors.errors.length) {
     res.status(400).send({
       success: false,
       errors
@@ -71,16 +64,11 @@ apiCapsules.createNewCapsule = (req, res) => {
 }
 
 apiCapsules.updateCapsule = (req, res) => {
-  var query = { _id: req.params.capsId },
+  let query = { _id: req.params.capsId },
     mod = req.body;
 
-  req.assert('user_name', 'Nome de usuário é obrigatório').notEmpty();
-  req.assert('user_id', 'O id do usuário é obrigatório').notEmpty();
-  req.assert('quantity_capsules_per_week', 'Quantidade de cápsulas por semana é obrigatório').notEmpty();
-  req.assert('notify_enf_capsules', 'Notificar quando finalizar é obrigatório').notEmpty();
-
-  const errors = req.validationErrors();
-  if (errors) {
+  const errors = validationResult(req);
+  if (errors.errors.length) {
     res.status(400).send({
       success: false,
       errors

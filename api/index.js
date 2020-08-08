@@ -1,4 +1,4 @@
-'user strict'
+'use strict'
 
 const app = require('./config/express')();
 const db = require('./models/db').connection();
