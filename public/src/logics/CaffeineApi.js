@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 import { allCapsules, showMessage } from '../actions/actionCreator';
 
