@@ -3,19 +3,19 @@ version: 2.1
 aliases:
   - &restore-node-modules-cache
     name: Restore node_modules cache
-    key: v2-yarn-deps-{{ checksum "yarn.lock" }}
+    key: v1-yarn-deps-{{ checksum "yarn.lock" }}
 
   - &save-yarn-cache
       name: Save yarn cache
       paths:
         - ~/.cache/yarn
-      key: v2-yarn-cache
+      key: v1-yarn-cache
 
   - &save-node-modules-cache
     name: Save node_modules cache
     paths:
       - node_modules
-    key: v2-yarn-deps-{{ checksum "yarn.lock" }}
+    key: v1-yarn-deps-{{ checksum "yarn.lock" }}
 
 defaults: &defaults
   docker:

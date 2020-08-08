@@ -81,6 +81,7 @@
     "restify": "^8.5.1",
     "soap": "^0.32.0",
     "supertest": "^4.0.2",
+    "webpack-cli": "^3.3.12",
     "winston": "^3.3.1"
   },
   "semistandard": {
