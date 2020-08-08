@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import '../../css/_reset.scss';
+// import '../../css/_reset.scss';
 import Box from './Box';
 
 storiesOf('Box', module)
