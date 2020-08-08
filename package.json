@@ -45,10 +45,9 @@
     "semistandard-loader": "^0.0.4",
     "semver": "^7.3.2",
     "style-loader": "^0.18.2",
-    "supertest": "^3.0.0",
     "supertest-as-promised": "^4.0.2",
     "webpack": "^4.43.0",
-    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
     "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "3.11.0"
   },
@@ -81,7 +80,6 @@
     "restify": "^8.5.1",
     "soap": "^0.32.0",
     "supertest": "^4.0.2",
-    "webpack-cli": "^3.3.12",
     "winston": "^3.3.1"
   },
   "semistandard": {
