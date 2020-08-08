@@ -1,4 +1,4 @@
-'user strict'
+'use strict'
 
 const webpack = require('webpack');
 const WebpackDevDerver = require('webpack-dev-server');

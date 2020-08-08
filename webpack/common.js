@@ -32,12 +32,11 @@ module.exports = {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: [['env', { modules: false }], 'stage-0', 'react'],
+        presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
         plugins: [
           'react-hot-loader/babel',
-          ['transform-runtime', {
+          ['@babel/transform-runtime', {
             helpers: false,
-            polyfill: false,
             regenerator: true
           }]
         ]

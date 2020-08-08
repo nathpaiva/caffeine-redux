@@ -1,4 +1,4 @@
-'user strict'
+'use strict'
 
 const winston = require('winston');
 const fs = require('fs');
