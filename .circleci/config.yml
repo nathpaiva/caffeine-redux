@@ -50,7 +50,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: ~/basic_analytics_frontend
+          at: ~/caffeine
 
       - run:
           name: Run Lint
