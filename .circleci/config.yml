@@ -63,9 +63,6 @@ workflows:
   branch-workflow:
     jobs:
       - build_packages
-      - lint_test:
-          requires:
-            - build_packages
       - unit_test:
           requires:
             - build_packages
