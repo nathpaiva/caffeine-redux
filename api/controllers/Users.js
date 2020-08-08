@@ -64,8 +64,7 @@ apiUsers.createUser = (req, res) => {
   let user = req.body;
 
   const errors = validationResult(req);
-
-  if (errors) {
+  if (errors.errors.length) {
     res.status(400).send(errors);
     return;
   }

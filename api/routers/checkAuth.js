@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 CheckAuth = (req, res, next) => {
-  const { body, query, headers, app, decoded } = req;
+  const { body, query, headers, app } = req;
   if (body === undefined) return;
 
   const token = body.token || query.token || headers['x-access-token'];
@@ -15,11 +15,10 @@ CheckAuth = (req, res, next) => {
           success: false,
           message: 'Failed to authenticate token.'
         });
-      } else {
-        // if everything is good, save to request for use in other routes
-        decoded = decodedJWT;
-        next();
       }
+
+      // if everything is good, save to request for use in other routes
+      next();
     });
 
   } else {

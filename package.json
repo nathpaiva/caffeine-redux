@@ -6,6 +6,8 @@
   "license": "MIT",
   "react-hot-loader": "next",
   "scripts": {
+    "test:api:watch": "jest ./__test__/** --watch",
+    "test:api": "jest ./__test__/** --coverage",
     "test:watch": "jest --watch",
     "test": "jest --coverage",
     "start:api": "nodemon api/index.js",
