@@ -7,7 +7,7 @@ const style = {
     margin: '2px 0',
     width: '100%',
     height: '32px',
-    opacity: '.5'
+    opacity: '.5',
   },
   styleInput: {
     border: '1px solid #CCCCCC',
@@ -19,22 +19,32 @@ const style = {
   },
   styleLabel: {
     fontSice: '12px',
-    fontFamily: '"Roboto", sans-serif'
-  }
-}
+    fontFamily: '"Roboto", sans-serif',
+  },
+};
 
-const Input = ({ type, id, text, value, label, disabled, inputRef, defaultValue }) => {
+const Input = ({ type, id, text, label, disabled, inputRef, defaultValue }) => {
   return (
     <div>
-      {label ? <label style={style.styleLabel} htmlFor={id}>{label}</label> : ''}
-      <input ref={inputRef}
+      {label ? (
+        <label style={style.styleLabel} htmlFor={id}>
+          {label}
+        </label>
+      ) : (
+        ''
+      )}
+      <input
+        ref={inputRef}
         style={!disabled ? style.styleInput : style.styleInputDisabled}
         defaultValue={defaultValue ? defaultValue : ''}
         disabled={disabled ? disabled : false}
         type={type}
-        id={id} name={id} placeholder={text} />
+        id={id}
+        name={id}
+        placeholder={text}
+      />
     </div>
-  )
+  );
 };
 
 export default Input;

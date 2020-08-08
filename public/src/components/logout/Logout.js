@@ -1,8 +1,8 @@
 import { Component } from 'react';
 
 class Logout extends Component {
-
-  componentWillMount() {
+  // @TODO refactor
+  UNSAFE_componentWillMount() {
     localStorage.removeItem('auth-token');
     localStorage.removeItem('user');
     this.props.history.push('/');

@@ -1,10 +1,9 @@
-'use stict';
+'use strict';
 
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Button from './Button';
-
 
 describe('#Test Button Component', () => {
   it('#Should Button to mach snapshot', () => {
