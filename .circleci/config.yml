@@ -55,7 +55,7 @@ jobs:
 
       - run:
           name: Run Unit Tests
-          command: yarn test
+          command: yarn test:ci
 
 workflows:
   version: 2

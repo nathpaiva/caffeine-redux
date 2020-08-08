@@ -9,6 +9,7 @@
     "test:watch": "jest --watch",
     "test:api": "jest ./__test__/** --coverage",
     "test:frontend": "jest ./public/src/** --coverage",
+    "test:ci": "yarn test:frontend",
     "test": "jest --coverage",
     "start:api": "nodemon api/index.js",
     "start:front": "node webpack-start.js",
