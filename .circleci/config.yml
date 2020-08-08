@@ -30,7 +30,6 @@ jobs:
     steps:
       - checkout
       - restore_cache: *restore-node-modules-cache
-      - configure_jfrog
 
       - run:
           name: Install Dependencies
