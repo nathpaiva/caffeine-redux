@@ -1,10 +1,9 @@
-'use stict';
+'use strict';
 
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Message from './Message';
-
 
 describe('#Test Message Component', () => {
   it('#Should Message with success', () => {

@@ -36,7 +36,7 @@ class List extends Component {
       </div>
     )
   }
-};
+}
 
 const mapDispatchToProps = dispatch => {
   return {

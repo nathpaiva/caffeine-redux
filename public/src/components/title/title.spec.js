@@ -1,10 +1,9 @@
-'use stict';
+'use strict';
 
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Title from './Title';
-
 
 describe('#Test Title Component', () => {
   it('#Should Title to mach snapshot', () => {

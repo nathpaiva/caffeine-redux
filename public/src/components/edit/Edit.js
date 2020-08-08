@@ -45,7 +45,7 @@ class Edit extends Component {
       </form>
     )
   }
-};
+}
 
 const mapDispatchToProps = dispatch => {
   return {
