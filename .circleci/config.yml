@@ -1,7 +1,72 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
+
+aliases:
+  - &restore-node-modules-cache
+    name: Restore node_modules cache
+    key: v2-yarn-deps-{{ checksum "yarn.lock" }}
+
+  - &save-yarn-cache
+      name: Save yarn cache
+      paths:
+        - ~/.cache/yarn
+      key: v2-yarn-cache
+
+  - &save-node-modules-cache
+    name: Save node_modules cache
+    paths:
+      - node_modules
+    key: v2-yarn-deps-{{ checksum "yarn.lock" }}
+
+defaults: &defaults
+  docker:
+    - image: sfiorotti/dockerhub-awscli-node-yarn:latest
+  working_directory: ~/caffeine
+
+
+jobs:
+  build_packages:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - restore_cache: *restore-node-modules-cache
+      - configure_jfrog
+
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+
+      - run:
+          name: Build Packages
+          command: yarn build
+
+      - save_cache: *save-node-modules-cache
+      - save_cache: *save-yarn-cache
+      - persist_to_workspace:
+          root: '.'
+          paths:
+            - '*'
+
+  unit_test:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/caffeine
+
+      - run:
+          name: Run Unit Tests
+          command: yarn test
+
 workflows:
-  node-tests:
+  version: 2
+
+  branch-workflow:
     jobs:
-      - node/test
+      - build_packages
+      - lint_test:
+          requires:
+            - build_packages
+      - unit_test:
+          requires:
+            - build_packages
