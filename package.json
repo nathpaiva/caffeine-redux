@@ -7,6 +7,8 @@
   "react-hot-loader": "next",
   "scripts": {
     "test:watch": "jest --watch",
+    "test:api": "jest ./__test__/** --coverage",
+    "test:frontend": "jest ./public/src/** --coverage",
     "test": "jest --coverage",
     "start:api": "nodemon api/index.js",
     "start:front": "node webpack-start.js",
