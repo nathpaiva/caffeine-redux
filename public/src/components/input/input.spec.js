@@ -1,10 +1,9 @@
-'use stict';
+'use strict';
 
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Input from './Input';
-
 
 describe('#Test Input Component', () => {
   it('#Should Input to mach snapshot without label', () => {

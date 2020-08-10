@@ -18,7 +18,9 @@
     "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --progress --config webpack/prod.config -p",
     "public": "webpack",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "eslint ./public/src/",
+    "lint:fix": "eslint ./public/src --fix"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -33,6 +35,12 @@
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.2",
     "detect-browser": "^5.1.1",
+    "eslint": "^7.6.0",
+    "eslint-config-react-app": "5.2.1",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react-hooks": "1.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
@@ -41,8 +49,6 @@
     "jest-cli": "^26.0.1",
     "react-hot-loader": "4.12.21",
     "react-test-renderer": "^16.13.1",
-    "semistandard": "^14.2.0",
-    "semistandard-loader": "^0.0.4",
     "semver": "^7.3.2",
     "style-loader": "^0.18.2",
     "supertest-as-promised": "^4.0.2",
@@ -57,6 +63,8 @@
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.10.4",
     "babel-plugin-react-transform": "^3.0.0",
+    "babel-eslint": "10.0.3",
+    "eslint-plugin-jest": "23.8.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "consign": "^0.1.5",
@@ -81,10 +89,5 @@
     "soap": "^0.32.0",
     "supertest": "^4.0.2",
     "winston": "^3.3.1"
-  },
-  "semistandard": {
-    "globals": [
-      "alert"
-    ]
   }
 }

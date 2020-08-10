@@ -2,46 +2,38 @@
 
 import { allCapsules, showMessage } from '../actions/actionCreator';
 
-
 export function getAllItems(token, user_id, type) {
   const requests = {
     method: 'GET',
     headers: new Headers({
       'Content-type': 'application/json',
-      'x-access-token': JSON.parse(token)
-    })
+      'x-access-token': JSON.parse(token),
+    }),
   };
   let url = `http://localhost:3000/api/auth/capsules/${user_id}`;
   if (type === 'one') {
     url = `http://localhost:3000/api/auth/capsule/${user_id}`;
   }
 
-  return dispatch => {
+  return (dispatch) => {
     fetch(url, requests)
-      .then(response => response.json())
-      .then(response => {
-
+      .then((response) => response.json())
+      .then((response) => {
         let message = {};
 
         if (!response.success) {
           message = {
             msg: response.message,
-            typeMesage: 'error'
-          }
+            typeMesage: 'error',
+          };
           dispatch(showMessage(message));
 
-          // if (message.msg === 'Failed to authenticate token.') {
-          //   // this.props.history.push(`/logout`);
-          //   // dispatch(push('/logout'));
-          // }
-
           throw new Error(message.msg);
-          return;
         }
 
         message = {
           msg: '',
-          typeMesage: ''
+          typeMesage: '',
         };
 
         dispatch(showMessage(message));
@@ -51,7 +43,7 @@ export function getAllItems(token, user_id, type) {
         }
         dispatch(allCapsules(capsules));
       });
-  }
+  };
 }
 
 export function createItem(capsule, type) {
@@ -69,71 +61,67 @@ export function createItem(capsule, type) {
     body: JSON.stringify(capsule),
     headers: new Headers({
       'Content-type': 'application/json',
-      'x-access-token': JSON.parse(localStorage.getItem('auth-token'))
-    })
+      'x-access-token': JSON.parse(localStorage.getItem('auth-token')),
+    }),
   };
 
-  return dispatch => {
+  return (dispatch) => {
     fetch(url, request)
-      .then(response => response.json())
-      .then(response => {
-
+      .then((response) => response.json())
+      .then((response) => {
         let message = {};
 
         if (!response.success) {
           message = {
             msg: 'Error to add capsule',
-            typeMesage: 'error'
-          }
+            typeMesage: 'error',
+          };
           dispatch(showMessage(message));
 
           throw new Error(message.msg);
-          return;
         }
 
         message = {
           msg: type === 'one' ? 'Change success!' : 'Create success',
-          typeMesage: 'success'
-        }
+          typeMesage: 'success',
+        };
         dispatch(showMessage(message));
       });
-  }
+  };
 }
 
 export function removeItem(user_id, capsule_id) {
-
   const requests = {
     method: 'DELETE',
     headers: new Headers({
       'Content-type': 'application/json',
-      'x-access-token': JSON.parse(localStorage.getItem('auth-token'))
-    })
+      'x-access-token': JSON.parse(localStorage.getItem('auth-token')),
+    }),
   };
 
   const url = `http://localhost:3000/api/auth/capsules/${user_id}/${capsule_id}`;
-  return dispatch => {
+  return (dispatch) => {
     fetch(url, requests)
-      .then(response => response.json())
-      .then(response => {
+      .then((response) => response.json())
+      .then((response) => {
         let message = {};
         if (!response.success) {
           message = {
             msg: response.message,
-            typeMesage: 'error'
-          }
+            typeMesage: 'error',
+          };
           dispatch(showMessage(message));
 
           throw new Error(message.msg);
-          return;
         }
 
         message = {
           msg: 'Capsula removida com sucesso',
-          typeMesage: 'success'
+          typeMesage: 'success',
         };
 
         dispatch(showMessage(message));
         dispatch(allCapsules(response.capsules));
       });
-  }
+  };
 }

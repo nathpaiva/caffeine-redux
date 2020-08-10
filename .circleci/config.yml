@@ -6,10 +6,10 @@ aliases:
     key: v1-yarn-deps-{{ checksum "yarn.lock" }}
 
   - &save-yarn-cache
-      name: Save yarn cache
-      paths:
-        - ~/.cache/yarn
-      key: v1-yarn-cache
+    name: Save yarn cache
+    paths:
+      - ~/.cache/yarn
+    key: v1-yarn-cache
 
   - &save-node-modules-cache
     name: Save node_modules cache
@@ -21,7 +21,6 @@ defaults: &defaults
   docker:
     - image: sfiorotti/dockerhub-awscli-node-yarn:latest
   working_directory: ~/caffeine
-
 
 jobs:
   build_packages:
@@ -46,6 +45,17 @@ jobs:
           paths:
             - '*'
 
+  lint_test:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/caffeine
+
+      - run:
+          name: Run Lint
+          command: yarn lint
+
   unit_test:
     <<: *defaults
 
@@ -63,6 +73,9 @@ workflows:
   branch-workflow:
     jobs:
       - build_packages
+      - lint_test:
+          requires:
+            - build_packages
       - unit_test:
           requires:
             - build_packages
