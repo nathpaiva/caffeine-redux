@@ -1,44 +1,44 @@
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
-}
+import { createGlobalStyle } from 'styled-components';
 
-body {
-  overflow-x: hidden;
-  font-size: 10px;
-  font-family: "Roboto", sans-serif;
-  line-height: 1;
-  color: #414141;
-  font-weight: 400;
-  background-color: #F1F1F1;
-}
+const Reset = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
+  body {
+    overflow-x: hidden;
+    font-size: 10px;
+    font-family: "Roboto", sans-serif;
+    line-height: 1;
+    color: #414141;
+    font-weight: 400;
+    background-color: #F1F1F1;
+  }
 
-ol, ul {
-  list-style: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-p {
-  font-size: 1.2em;
-  padding: 5px 0;
-}
+  ol, ul {
+    list-style: none;
+  }
 
-label, input {
-  font-size: 1.2em;
-}
+  p {
+    font-size: 1.2em;
+    padding: 5px 0;
+  }
 
+  label, input {
+    font-size: 1.2em;
+  }
 
-
-:global {
   .container {
     width: 100%;
     max-width: 1280px;
@@ -72,4 +72,7 @@ label, input {
   .hide {
     display: none;
   }
-}
+
+`;
+
+export default Reset;

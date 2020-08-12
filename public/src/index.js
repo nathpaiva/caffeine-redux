@@ -6,15 +6,17 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { AppContainer } from 'react-hot-loader';
 import App from './App';
-
-// import './css/_reset.scss';
+import ResetCSS from './RestCSS';
 
 const renderApp = (NextApp) => {
   render(
     <AppContainer>
-      <Router>
-        <NextApp />
-      </Router>
+      <>
+        <ResetCSS />
+        <Router>
+          <NextApp />
+        </Router>
+      </>
     </AppContainer>,
     document.querySelector('[data-js="app"]')
   );

@@ -1,10 +1,9 @@
 'use strict'
 
-const webpack = require('webpack')
-const common = require('./common')
+const webpack = require('webpack');
+const common = require('./common');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -27,14 +26,6 @@ module.exports = {
     rules: [
       common.jsLoader,
       common.fileLoader,
-      common.urlLoader,
-      Object.assign({}, common.cssLoader, {
-        use: ExtractTextPlugin.extract({
-          fallback: common.cssLoader.use[0],
-          use: common.cssLoader.use.slice(1)
-        })
-      }),
-      common.cssLoaderUseable
     ]
   },
 
