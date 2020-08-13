@@ -13,10 +13,9 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { capsulesReducer } from './reducers/capsules';
 import { messageReducer } from './reducers/message';
+
 const reducers = combineReducers({ capsulesReducer, messageReducer })
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
-console.log("store", store)
-
 
 const renderApp = (NextApp) => {
   render(
