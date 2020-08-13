@@ -3,8 +3,13 @@ import queryString from 'query-string';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-import Message from '../message/Message';
-import Box from '../box/Box';
+import Message from '../../components/message/Message';
+import Box from '../../components/box';
+import Title from '../../components/title';
+import Fieldset from '../../components/fieldset';
+import Label from '../../components/label';
+import Input from '../../components/input';
+import Button from '../../components/button';
 
 class Login extends Component {
   constructor(props) {
@@ -63,32 +68,50 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Message className={this.state.typeMesage} msg={this.state.msg} />
         <form onSubmit={this.handleClick.bind(this)}>
           <Tabs selectedIndex={this.state.tabIndex} onSelect={(tabIndex) => this.setState({ tabIndex })}>
             <TabPanel>
-              <Box
-                title='Login'
-                text='Im already a caffeine customer.'
-                inputs={[
-                  { type: 'text', id: 'login', text: 'login', inputRef: (input) => (this.login = input) },
-                  { type: 'password', id: 'pass', text: 'password', inputRef: (input) => (this.password = input) },
-                ]}
-                button='Login'
-              />
+              <Box>
+                <Title>Login</Title>
+                <p>Im already a caffeine customer.</p>
+
+                <Fieldset>
+                  <Label htmlFor="login">login</Label>
+                  <Input type="text" id="login" placeholder="login" />
+                </Fieldset>
+
+                <Fieldset>
+                  <Label htmlFor="pass">password</Label>
+                  <Input type="password" id="pass" placeholder="password" />
+                </Fieldset>
+
+                <Button type="submit">Login</Button>
+              </Box>
             </TabPanel>
             <TabPanel>
-              <Box
-                title='Register'
-                text='First time using of caffeine.'
-                inputs={[
-                  { type: 'email', id: 'email', text: 'email', inputRef: (input) => (this.email = input) },
-                  { type: 'text', id: 'login', text: 'login', inputRef: (input) => (this.login = input) },
-                  { type: 'password', id: 'pass', text: 'password', inputRef: (input) => (this.password = input) },
-                ]}
-                button='Create'
-              />
+              <Box>
+                <Title>Register</Title>
+                <p>First time using of caffeine.</p>
+
+                <Fieldset>
+                  <Label htmlFor="email">email</Label>
+                  <Input require type="email" id="email" placeholder="email" />
+                </Fieldset>
+
+                <Fieldset>
+                  <Label htmlFor="login">login</Label>
+                  <Input require type="text" id="login" placeholder="login" />
+                </Fieldset>
+
+                <Fieldset>
+                  <Label htmlFor="pass">password</Label>
+                  <Input require type="password" id="pass" placeholder="password" />
+                </Fieldset>
+
+                <Button type="submit">Create</Button>
+              </Box>
             </TabPanel>
             <TabList>
               <Tab>{`I'm already registered`}</Tab>
@@ -96,7 +119,7 @@ class Login extends Component {
             </TabList>
           </Tabs>
         </form>
-      </div>
+      </>
     );
   }
 }
