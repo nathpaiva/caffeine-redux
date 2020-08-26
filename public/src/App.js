@@ -8,7 +8,7 @@ import Authenticated from './components/authenticated/Authenticated'
 
 import Header from './components/header/Header';
 
-import Login from './components/login/Login';
+import Login from './pages/login/Login';
 import Logout from './components/logout/Logout';
 import Edit from './components/edit/Edit';
 import Create from './components/create/Create';

@@ -27,6 +27,8 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/runtime": "^7.11.2",
     "@storybook/react": "^5.3.19",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
     "babel-jest": "^26.2.2",
     "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",

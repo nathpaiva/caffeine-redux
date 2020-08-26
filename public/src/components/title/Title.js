@@ -1,14 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const subTitleCenter = {
-  textAlign: 'center',
-  fontSize: '20px',
-  color: '#414141',
-  fontFamily: '"Roboto", sans-serif'
-}
+const Root = styled.h2`
+  text-align: center;
+  font-size: 2rem;
+  color: #414141;
+  font-family: Roboto, sans-serif;
+`;
 
-const Title = ({ title }) => (
-  <h2 style={subTitleCenter}>{title}</h2>
+const Title = ({ children, ...rest }) => (
+  <Root {...rest}>{children}</Root>
 );
 
 export default Title;

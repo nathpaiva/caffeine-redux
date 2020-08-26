@@ -1,18 +1,39 @@
 'use strict';
 
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { screen, render, fireEvent } from '@testing-library/react';
 
 import Input from './Input';
 
-describe('#Test Input Component', () => {
-  it('#Should Input to mach snapshot without label', () => {
-    const tree = renderer.create(<Input type='email' id='email' text='email' value='nath@nath.com.br' />).toJSON();
-    expect(tree).toMatchSnapshot();
+const fireChangeValue = (input, value) => {
+  fireEvent.change(input, { target: { value } });
+  expect(input).toHaveValue('ldlld');
+};
+
+describe('#Input', () => {
+  test('#should render an Input email', () => {
+    render(<Input type="email" id="email" placeholder="email" />);
+
+    const email = screen.getByPlaceholderText('email');
+    expect(email).toBeInTheDocument();
+    expect(email).toHaveAttribute('type', 'email');
   });
 
-  it('#Should Input to mach snapshot with label', () => {
-    const tree = renderer.create(<Input type='email' id='email' text='email' value='nath@nath.com.br' label='Email' />).toJSON();
-    expect(tree).toMatchSnapshot();
+  test('#should render an Input text', () => {
+    render(<Input type="text" id="text" placeholder="text" />);
+
+    const text = screen.getByPlaceholderText('text');
+    expect(text).toBeInTheDocument();
+    expect(text).toHaveAttribute('type', 'text');
+  });
+
+  test('#should render an Input disabled', () => {
+    const {debug} = render(<Input type="text" id="text" disabled placeholder="text" />);
+
+    const text = screen.getByPlaceholderText('text');
+    expect(text).toBeInTheDocument();
+    expect(text).toHaveAttribute('disabled', '');
+    fireChangeValue(text, 'value');
+    debug();
   });
 });

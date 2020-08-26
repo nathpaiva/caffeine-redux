@@ -5,7 +5,7 @@ const Reset = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
+    font-size: 10px;
     vertical-align: baseline;
     box-sizing: border-box;
   }
@@ -31,12 +31,12 @@ const Reset = createGlobalStyle`
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     padding: 5px 0;
   }
 
   label, input {
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
 
   .container {
