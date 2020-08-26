@@ -15,8 +15,12 @@ const Root = styled.button`
   border-radius: 2px;
 `;
 
-const Button = ({ children, ...rest }) => (
-  <Root {...rest}>{children}</Root>
+const Button = ({ type, children, ...rest }) => (
+  <Root type={type} {...rest}>{children}</Root>
 );
+
+Button.defaultProps = {
+  type: 'button'
+}
 
 export default Button;

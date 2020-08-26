@@ -1,14 +1,4 @@
 const style = {
-  boxform: {
-    display: 'flex',
-    width: '100%',
-    maxWidth: '500px',
-    margin: '10px auto auto',
-    border: '1px solid rgb(90, 74, 105)',
-    borderRadius: '2px',
-    padding: '10px 0',
-    backgroundColor: '#fff',
-  },
   box: {
     padding: '0 10px',
     width: '100%',
