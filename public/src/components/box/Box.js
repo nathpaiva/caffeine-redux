@@ -13,7 +13,6 @@ const Box = ({ link, title, text, inputs, button, to }) => (
     <ul style={style.box}>
       {!!link && (
         <div style={style.containterLink}>
-          {/* card link */}
           {link.map((item, i) => {
             if (item.to) {
               return (
