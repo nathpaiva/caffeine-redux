@@ -39,7 +39,7 @@ The idea is to implement a notification of when you are finishing the capsule fo
 
 - This command to access [http://localhost:2000](http://localhost:2000), starting the front-end
 
-`yarn startapi` or `npm startapi`
+`yarn start:api` or `npm start:api`
 
 - This command to access [http://localhost:3000](http://localhost:2000), starting the backend
 
