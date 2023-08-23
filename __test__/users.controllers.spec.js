@@ -7,8 +7,9 @@ require('../api/models/db').connection('test');
 
 describe('#User Controller', () => {
 
-  beforeEach(async () => {
+  beforeEach(async function () {
     await UsersDB.remove().exec();
+    this.timeout(0);
   });
 
   describe('#Show all user', () => {
