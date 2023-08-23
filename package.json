@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test:api:watch": "mocha ./__test__/** --watch",
-    "test:api": "mocha ./__test__/** --coverage",
+    "test:api": "mocha ./__test__/** --exit",
     "test:ci:api": "npm run test:api",
     "test:ui": "jest ./public/src/** --coverage",
     "test:ci:ui": "npm run test:ui",
