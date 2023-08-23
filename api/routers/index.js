@@ -5,8 +5,8 @@ const CheckAuth = require('./checkAuth');
 
 module.exports = function (app) {
 
-  const apiRoutes = express.Router(),
-    authRoutes = express.Router();
+  const apiRoutes = express.Router();
+  const authRoutes = express.Router();
 
   apiRoutes.use('/auth', authRoutes);
 
@@ -18,6 +18,7 @@ module.exports = function (app) {
   ], app.controllers.Users.createUser);
   apiRoutes.get('/users', app.controllers.Users.listUsers);
 
+  // AUTH
   authRoutes.get('/users', CheckAuth, app.controllers.Users.listUsers);
   authRoutes.get('/capsules/:userId', CheckAuth, app.controllers.Capsules.loadCapsulesToUser);
   authRoutes.post('/capsules/:userId', CheckAuth, [

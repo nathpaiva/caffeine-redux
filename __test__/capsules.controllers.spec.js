@@ -1,9 +1,14 @@
+const { expect } = require("chai");
 const express = require('../api/config/express')();
 const request = require('supertest')(express);
 const CapsulesDB = require('../api/models/Capsules');
-const connect = require('../api/models/db').connection('test');
+require('../api/models/db').connection('test');
 
 describe('#Capsules Controller', () => {
+
+  it('should be true', () => {
+    expect(true).equal(true)
+  })
 
   beforeEach(async () => {
     await CapsulesDB.remove().exec();
@@ -29,7 +34,7 @@ describe('#Capsules Controller', () => {
       .set('x-access-token', login.body.token);
 
     const isArrayResult = Array.isArray(res.body.capsules);
-    expect(isArrayResult).toEqual(true);
+    expect(isArrayResult).equal(true);
   });
 
   describe('#Create Capsules', () => {
@@ -54,7 +59,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 20
         });
 
-      expect(res.body.success).toEqual(true);
+      expect(res.body.success).equal(true);
     });
 
     it('#Error to create capsule by user, empty user_name', async () => {
@@ -78,7 +83,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 20
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Error to create capsule by user, empty user_id', async () => {
@@ -102,7 +107,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 20
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Error to create capsule by user, empty quantity_capsules_per_week', async () => {
@@ -125,7 +130,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 20
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Error to create capsule by user, empty notify_enf_capsules', async () => {
@@ -148,7 +153,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 20
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
   });
 
@@ -187,7 +192,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 29
         });
 
-      expect(res.body.success).toEqual(true);
+      expect(res.body.success).equal(true);
     });
 
     it('#Error to edit capsule by id - without user_name', async () => {
@@ -223,7 +228,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 29
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Error to edit capsule by id - without user_id', async () => {
@@ -259,7 +264,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 29
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Error to edit capsule by id - without notify_enf_capsules', async () => {
@@ -294,7 +299,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 29
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Error to edit capsule by id - without quantity_capsules_per_week', async () => {
@@ -329,7 +334,7 @@ describe('#Capsules Controller', () => {
           price_last_buy: 29
         });
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
   });
 
@@ -361,7 +366,7 @@ describe('#Capsules Controller', () => {
         .set('Accept', 'application/json')
         .set('x-access-token', login.body.token);
 
-      expect(res.body.success).toEqual(true);
+      expect(res.body.success).equal(true);
     });
 
     it('#Erro when Delete capsule without id of capsule in url', async () => {
@@ -389,7 +394,7 @@ describe('#Capsules Controller', () => {
         .set('Accept', 'application/json')
         .set('x-access-token', login.body.token);
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Erro when Delete capsule without id of user in url', async () => {
@@ -417,7 +422,7 @@ describe('#Capsules Controller', () => {
         .set('Accept', 'application/json')
         .set('x-access-token', login.body.token);
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
   });
 });

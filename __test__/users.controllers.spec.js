@@ -1,10 +1,14 @@
+const { expect } = require("chai");
 const express = require('../api/config/express')();
 const request = require('supertest')(express);
 const UsersDB = require('../api/models/Users');
-const connect = require('../api/models/db').connection('test');
+require('../api/models/db').connection('test');
 
 
 describe('#User Controller', () => {
+  it('should be true', () => {
+    expect(true).equal(true)
+  })
 
   beforeEach(async () => {
     await UsersDB.remove().exec();
@@ -16,7 +20,7 @@ describe('#User Controller', () => {
         .set('Accept', 'application/json');
 
       const isArrayResult = Array.isArray(res.body);
-      expect(isArrayResult).toEqual(true);
+      expect(isArrayResult).equal(true);
     });
 
 
@@ -41,7 +45,7 @@ describe('#User Controller', () => {
         .set('x-access-token', login.body.token);
 
       const isArrayResult = Array.isArray(res.body);
-      expect(isArrayResult).toEqual(true);
+      expect(isArrayResult).equal(true);
     });
 
     it('#Erro to get user without auth', async () => {
@@ -53,7 +57,7 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      const login = await request.post('/api/login')
+      await request.post('/api/login')
         .set('Accept', 'application/json')
         .send({
           user_name: user.body.newuser.user_name,
@@ -64,7 +68,7 @@ describe('#User Controller', () => {
         .set('Accept', 'application/json')
         .set('x-access-token', '');
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
 
     it('#Erro to get user with wrong auth', async () => {
@@ -87,7 +91,7 @@ describe('#User Controller', () => {
         .set('Accept', 'application/json')
         .set('x-access-token', `${login.body.token}a`);
 
-      expect(res.body.success).toEqual(false);
+      expect(res.body.success).equal(false);
     });
   });
 
@@ -101,9 +105,9 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      expect(res.body.success).toEqual(true);
-      expect(res.body.newuser.user_name).toEqual('nath');
-      expect(res.body.newuser.user_mail).toEqual('nath@nath.com.br');
+      expect(res.body.success).equal(true);
+      expect(res.body.newuser.user_name).equal('nath');
+      expect(res.body.newuser.user_mail).equal('nath@nath.com.br');
     });
 
     it('#New user empty user', async () => {
@@ -115,7 +119,7 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      expect(res.body.errors[0].msg).toEqual('Nome de usuário é obrigatório');
+      expect(res.body.errors[0].msg).equal('Nome de usuário é obrigatório');
     });
 
     it('#New user empty mail', async () => {
@@ -127,7 +131,7 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      expect(res.body.errors[0].msg).toEqual('Email é obrigatório');
+      expect(res.body.errors[0].msg).equal('Email é obrigatório');
     });
 
 
@@ -140,11 +144,11 @@ describe('#User Controller', () => {
           password: ''
         });
 
-      expect(res.body.errors[0].msg).toEqual('Senha é obrigatório');
+      expect(res.body.errors[0].msg).equal('Senha é obrigatório');
     });
 
     it('#New user existing with the same name different email', async () => {
-      const user = await request.post('/api/createuser')
+      await request.post('/api/createuser')
         .set('Accept', 'application/json')
         .send({
           user_name: 'nath',
@@ -160,12 +164,12 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      expect(res.body.success).toEqual(false);
-      expect(res.body.message).toEqual('User already exists.');
+      expect(res.body.success).equal(false);
+      expect(res.body.message).equal('User already exists.');
     });
 
     it('#New user existing with the same email and different name', async () => {
-      const user = await request.post('/api/createuser')
+      await request.post('/api/createuser')
         .set('Accept', 'application/json')
         .send({
           user_name: 'nath',
@@ -181,8 +185,8 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      expect(res.body.success).toEqual(false);
-      expect(res.body.message).toEqual('User already exists.');
+      expect(res.body.success).equal(false);
+      expect(res.body.message).equal('User already exists.');
     });
   });
 
@@ -204,7 +208,7 @@ describe('#User Controller', () => {
         });
 
 
-      expect(res.body.success).toEqual(true);
+      expect(res.body.success).equal(true);
     });
 
     it('#Login with wrong pass', async () => {
@@ -223,12 +227,12 @@ describe('#User Controller', () => {
           password: 'test1'
         });
 
-      expect(res.body.success).toEqual(false);
-      expect(res.body.message).toEqual('Authentication failed. Wrong password.');
+      expect(res.body.success).equal(false);
+      expect(res.body.message).equal('Authentication failed. Wrong password.');
     });
 
     it('#Login with wrong user name', async () => {
-      const user = await request.post('/api/createuser')
+      await request.post('/api/createuser')
         .set('Accept', 'application/json')
         .send({
           user_name: 'nath',
@@ -243,8 +247,8 @@ describe('#User Controller', () => {
           password: 'teste1'
         });
 
-      expect(res.body.success).toEqual(false);
-      expect(res.body.message).toEqual('Authentication failed. User not found.');
+      expect(res.body.success).equal(false);
+      expect(res.body.message).equal('Authentication failed. User not found.');
     });
   });
 

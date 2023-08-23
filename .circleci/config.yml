@@ -3,19 +3,19 @@ version: 2.1
 aliases:
   - &restore-node-modules-cache
     name: Restore node_modules cache
-    key: v1-yarn-deps-{{ checksum "yarn.lock" }}
+    key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
-  - &save-yarn-cache
-    name: Save yarn cache
+  - &save-npm-cache
+    name: Save npm cache
     paths:
-      - ~/.cache/yarn
-    key: v1-yarn-cache
+      - ~/.cache/npm
+    key: v1-npm-cache
 
   - &save-node-modules-cache
     name: Save node_modules cache
     paths:
       - node_modules
-    key: v1-yarn-deps-{{ checksum "yarn.lock" }}
+    key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
 defaults: &defaults
   docker:
@@ -32,14 +32,14 @@ jobs:
 
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: npm install --frozen-lockfile
 
       - run:
           name: Build Packages
-          command: yarn build
+          command: npm run build
 
       - save_cache: *save-node-modules-cache
-      - save_cache: *save-yarn-cache
+      - save_cache: *save-npm-cache
       - persist_to_workspace:
           root: '.'
           paths:
@@ -54,9 +54,9 @@ jobs:
 
       - run:
           name: Run Lint
-          command: yarn lint
+          command: npm run lint
 
-  unit_test:
+  unit_test_ui:
     <<: *defaults
 
     steps:
@@ -65,7 +65,18 @@ jobs:
 
       - run:
           name: Run Unit Tests
-          command: yarn test:ci
+          command: npm run test:ci:ui
+
+  unit_test_backend:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/caffeine
+
+      - run:
+          name: Run Unit Tests
+          command: npm run test:ci:api
 
 workflows:
   version: 2
@@ -76,6 +87,9 @@ workflows:
       - lint_test:
           requires:
             - build_packages
-      - unit_test:
+      - unit_test_ui:
+          requires:
+            - build_packages
+      - unit_test_backend:
           requires:
             - build_packages
