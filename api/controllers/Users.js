@@ -3,7 +3,7 @@ const servicesMemcached = require('../services/memcachedClient');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 
-_generateToken = (user, secret) => jwt.sign(user.toJSON(), secret, {
+const _generateToken = (user, secret) => jwt.sign(user.toJSON(), secret, {
   // expiresIn: 60 * 60 * 24
   // expiresIn: 300 // in seconds
   expiresIn: 60 * 60 * 24 // in seconds

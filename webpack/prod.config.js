@@ -16,7 +16,7 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
-      'proccess.env': {
+      'process.env': {
         'NODE_ENV': '"production"'
       }
     }),

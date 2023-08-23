@@ -22,7 +22,7 @@ The idea is to implement a notification of when you are finishing the capsule fo
 ## To run the project you need to install:
 
 - [Node](https://nodejs.org/en/download/)
-- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+- NPM (already installed with the node)
 - [Mongodb](https://docs.mongodb.com/manual/installation/)
 
 ## To start it is necessary to rotate the mongo locally:
@@ -31,20 +31,33 @@ The idea is to implement a notification of when you are finishing the capsule fo
 
 ## Before starting the project you must install the dependencies:
 
-- `yarn`
+```bash
+npm install
+```
 
 ## To start the project you have to run the commands:
 
-`yarn start`
+```bash
+npm start
+```
 
-- This command to access [http://localhost:2000](http://localhost:2000), starting the front-end
+- This command to access to:
+
+  - [http://localhost:2000](http://localhost:2000), starting the front-end
+
+  - [http://localhost:3000](http://localhost:2000), starting the backend
 
 ## If you want to see the test coverage:
 
-`yarn test`
+```bash
+npm run test
+```
 
 ## To be able to see the components in Storybook:
 
-`yarn storybook`
+```bash
+npm run storybook
+```
 
-- This command to access [http://localhost:6006/](http://localhost:6006/)
+- This command to access to:
+  - [http://localhost:6006/](http://localhost:6006/)
