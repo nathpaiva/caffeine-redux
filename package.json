@@ -71,7 +71,7 @@
     "body-parser": "1.19.0",
     "consign": "0.1.5",
     "eslint-plugin-jest": "23.8.2",
-    "express": "4.15.3",
+    "express": "4.18.2",
     "express-validator": "6.6.0",
     "immutable": "4.0.0-rc.12",
     "jsonwebtoken": "8.5.1",
