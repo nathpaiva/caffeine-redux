@@ -19,7 +19,7 @@ aliases:
 
 defaults: &defaults
   docker:
-    - image: sfiorotti/dockerhub-awscli-node-yarn:latest
+    - image: node:16.6.0-stretch-slim
   working_directory: ~/caffeine
 
 jobs:
