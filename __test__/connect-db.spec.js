@@ -4,9 +4,6 @@ const connect = require('../api/models/db');
 const { expect } = require("chai");
 
 describe('#Test user controller', () => {
-  it('should be true', () => {
-    expect(true).true
-  })
 
   beforeEach(async () => {
     await connect.connection('test');

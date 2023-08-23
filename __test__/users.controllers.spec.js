@@ -6,9 +6,6 @@ require('../api/models/db').connection('test');
 
 
 describe('#User Controller', () => {
-  it('should be true', () => {
-    expect(true).equal(true)
-  })
 
   beforeEach(async () => {
     await UsersDB.remove().exec();

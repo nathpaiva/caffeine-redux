@@ -6,10 +6,6 @@ require('../api/models/db').connection('test');
 
 describe('#Capsules Controller', () => {
 
-  it('should be true', () => {
-    expect(true).equal(true)
-  })
-
   beforeEach(async () => {
     await CapsulesDB.remove().exec();
     await request.post('/api/createuser')
