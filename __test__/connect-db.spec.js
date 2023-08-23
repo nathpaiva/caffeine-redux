@@ -5,11 +5,9 @@ const { expect } = require("chai");
 
 describe('#Test user controller', () => {
 
-  beforeEach(async function() {
+  beforeEach(async () => {
     await connect.connection('test');
     await UsersDB.remove().exec();
-
-    this.timeout(0);
   });
 
   it('should save a user with empty value', async () => {

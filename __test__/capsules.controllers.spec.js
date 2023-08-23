@@ -6,7 +6,7 @@ require('../api/models/db').connection('test');
 
 describe('#Capsules Controller', () => {
 
-  beforeEach(async function () {
+  beforeEach(async () => {
     await CapsulesDB.remove().exec();
     await request.post('/api/createuser')
       .set('Accept', 'application/json')
@@ -15,8 +15,6 @@ describe('#Capsules Controller', () => {
         user_mail: 'nath@nath.com.br',
         password: 'teste1'
       });
-
-    this.timeout(0);
   });
 
   it('#Load all capsules by user', async () => {
