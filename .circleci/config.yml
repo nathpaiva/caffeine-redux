@@ -67,17 +67,6 @@ jobs:
           name: Run Unit Tests
           command: npm run test:ci:ui
 
-  # unit_test_backend:
-  #   <<: *defaults
-
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/caffeine
-
-  #     - run:
-  #         name: Run Unit Tests
-  #         command: npm run test:ci:api
-
 workflows:
   version: 2
 
@@ -90,6 +79,3 @@ workflows:
       - unit_test_ui:
           requires:
             - build_packages
-      # - unit_test_backend:
-      #     requires:
-      #       - build_packages
